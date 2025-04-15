@@ -1,11 +1,15 @@
 import React from 'react'
+import SearchBar from './SearchBar'
 
 const ExpenseTable = () => {
   return (
-    <div>
+    
+    <div className='juicy-part'>
+        <SearchBar />
+        <div className='info'>
         <table>
-            <thead>
-                <tr>
+            <thead className='head'>
+                <tr className='row'>
                     <th>Expense</th>
                     <th>Description</th>
                     <th>Category</th>
@@ -23,6 +27,8 @@ const ExpenseTable = () => {
                 </tr>
             </tbody>
         </table>
+
+        </div>
     </div>
   )
 }

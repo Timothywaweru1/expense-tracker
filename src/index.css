@@ -26,3 +26,16 @@ form input {
 .form p {
   opacity: 0.5;
 }
+.search {
+  width: 254px;
+  height: 36px;
+  border-radius: 6.5px;
+}
+.right {
+  display: flex;
+  justify-content: start;
+}
+.details h1 {
+  font-size: 50px;
+  font-weight: 900;
+}

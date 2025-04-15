@@ -9,8 +9,5 @@ import ExpenseTable from './components/ExpenseTable.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <ExpenseForm />
-    <SearchBar />
-    <ExpenseTable />
   </StrictMode>,
 )
