@@ -1,43 +1,30 @@
-import React from "react";
+import React from 'react'
 
-function ExpenseTable(props) {
+const ExpenseTable = () => {
   return (
-    <table className="expense-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Category</th>
-          <th>Amount</th>
-          <th>Date</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        {props.expenses.map(function (expense) {
-          return (
-            <tr key={expense.id}>
-              <td>{expense.name}</td>
-              <td>{expense.description}</td>
-              <td>{expense.category}</td>
-              <td>{expense.amount}</td>
-              <td>{expense.date}</td>
-              <td>
-                <button
-                  className="delete-button"
-                  onClick={function () {
-                    props.onDelete(expense.id);
-                  }}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
-  );
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Expense</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr> {/*data will be displayed here*/}
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  )
 }
 
-export default ExpenseTable;
+export default ExpenseTable

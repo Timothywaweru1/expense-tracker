@@ -1,52 +1,12 @@
-import React, { useState } from "react";
-import ExpenseForm from "./component/ExpenseForm";
-import ExpenseTable from "./component/ExpenseTable";
-import SearchBar from "./component/SearchBar";
-import "./index.css";
+import React from 'react'
 
-function App() {
-  const [expenses, setExpenses] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  function handleAddExpense(expense) {
-    setExpenses(expenses.concat(expense));
-  }
-
-  function handleDeleteExpense(id) {
-    const newExpenses = expenses.filter(function (expense) {
-      return expense.id !== id;
-    });
-    setExpenses(newExpenses);
-  }
-
-  const filteredExpenses = expenses.filter(function (expense) {
-    return expense.name.toLowerCase().includes(searchTerm.toLowerCase());
-  });
-
+const App = () => {
   return (
-    <div className="container">
-      <header className="header">
-        <h1>Expense Tracker</h1>
-        <p>
-          Start tracking your money. <br />
-          Record and view your expenses easily.
-        </p>
-      </header>
-
-      <div className="main-layout">
-        <div className="left-panel">
-          <h2>Add Expense</h2>
-          <p>Fill in the details below</p>
-          <ExpenseForm onAddExpense={handleAddExpense} />
-        </div>
-
-        <div className="right-panel">
-          <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
-          <ExpenseTable expenses={filteredExpenses} onDelete={handleDeleteExpense} />
-        </div>
-      </div>
+    <div>
+      <h1>Expense Tracker</h1>
+      <p>Start taking control of your finances and life.Record,catalyze  and analyze your spending </p>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
