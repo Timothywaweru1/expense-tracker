@@ -5,7 +5,9 @@ const ExpenseTable = () => {
   return (
     
     <div className='juicy-part'>
-        <SearchBar />
+        <div className=''>
+           <SearchBar />
+        </div>
         <div className='info'>
         <table>
             <thead className='head'>
