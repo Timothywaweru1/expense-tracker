@@ -10,7 +10,7 @@ const App = () => {
       <p>Start taking control of your finances and life.Record,catalyze and analyze your spending </p>
       <div className='right'>
          <ExpenseForm />
-         <ExpenseTable />
+         <ExpenseTable onAddNewExpense={}/>
       </div>
     </div>
   )

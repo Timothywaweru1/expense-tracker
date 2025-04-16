@@ -48,12 +48,9 @@ table {
   border-spacing: 50px;
   
 }
-.info {
-  background: #000;
-  color: white;
-  width: 750px;
-  height: 70px;
-  border-radius: 10px;
 
+.detals h1{
+  font-size: 100px;
+  font-weight: bolder;
 }
 
