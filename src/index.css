@@ -5,6 +5,7 @@ button {
   color: white;
   border-radius: 7px;
   font-size: large;
+  
 }
 form input {
   display: flex;

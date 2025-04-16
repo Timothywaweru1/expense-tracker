@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SearchBar from './SearchBar'
 
-const ExpenseTable = () => {
+const ExpenseTable = (props) => {
+
+
+
   return (
     
     <div className='juicy-part'>
@@ -20,16 +23,25 @@ const ExpenseTable = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr> 
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button className='delete-btn'>Delete</button>
-                    </td>
-                </tr>
+                {
+                    props.expenses.map((expense) => {
+                        return (
+                            <tr key={expense.id}> 
+                            <td>{expense.name}</td>
+                            <td>{expense.description}</td>
+                            <td>{expense.category}</td>
+                            <td>{expense.amount}</td>
+                            <td>{expense.date}</td>
+                            <td>
+                                <button className='delete-btn' onClick={() => {
+                                    props.onDelete(expense.id)
+                                }}>Delete</button>
+                            </td>
+                        </tr>
+                        )
+                    })
+                }
+              
             </tbody>
         </table>
 

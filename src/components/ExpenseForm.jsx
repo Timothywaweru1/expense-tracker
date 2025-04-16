@@ -7,16 +7,14 @@ const ExpenseForm = () => {
     const [amount,setAmount] = useState("")
     const [date,setDate] = useState("")
 
-
-
-
   return (
     <div className='form'>
         <h3>Add Expense</h3>
         <p>Enter your details below</p>
-        <form onSubmit={(props) => {
+        <form onSubmit={(props,e) => {
+            e.preventDefault()
             const newExpense = {
-                id: today.valueOf(),
+                id: Date.now(),
                 expensename:expenseName,
                 description:description,
                 category:category,
