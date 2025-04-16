@@ -20,12 +20,15 @@ const ExpenseTable = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr> {/*data will be displayed here*/}
+                <tr> 
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>
+                        <button className='delete-btn'>Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
