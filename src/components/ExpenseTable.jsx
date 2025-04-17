@@ -1,53 +1,39 @@
-import React, { useState } from 'react'
-import SearchBar from './SearchBar'
+import React from "react";
 
-const ExpenseTable = (props) => {
-
-
-
+function ExpenseTable({ expenses, onDelete }) {
   return (
-    
-    <div className='juicy-part'>
-        <div className=''>
-           <SearchBar />
-        </div>
-        <div className='info'>
-        <table>
-            <thead className='head'>
-                <tr className='row'>
-                    <th>Expense</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    props.expenses.map((expense) => {
-                        return (
-                            <tr key={expense.id}> 
-                            <td>{expense.name}</td>
-                            <td>{expense.description}</td>
-                            <td>{expense.category}</td>
-                            <td>{expense.amount}</td>
-                            <td>{expense.date}</td>
-                            <td>
-                                <button className='delete-btn' onClick={() => {
-                                    props.onDelete(expense.id)
-                                }}>Delete</button>
-                            </td>
-                        </tr>
-                        )
-                    })
-                }
-              
-            </tbody>
-        </table>
-
-        </div>
-    </div>
-  )
+    <table className="expense-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {expenses.map((expense) => (
+          <tr key={expense.id}>
+            <td>{expense.name}</td>
+            <td>{expense.description}</td>
+            <td>{expense.category}</td>
+            <td>${expense.amount.toFixed(2)}</td>
+            <td>{new Date(expense.date).toLocaleDateString()}</td>
+            <td>
+              <button
+                className="delete-button"
+                onClick={() => onDelete(expense.id)}
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 }
 
-export default ExpenseTable
+export default ExpenseTable;

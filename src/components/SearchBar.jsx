@@ -1,13 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const SearchBar = (props) => {
+function SearchBar({ searchTerm, onSearch }) {
   return (
-    <div className='search-bar'>
-      <input type='search' placeholder='Search Expenses' className='search' value={props.search} onChange={(e) => {
-        props.onSearch(e.target.value)
-      }}/>
-    </div>
-  )
+    <input
+      type="text"
+      className="search-input"
+      placeholder="Search expenses..."
+      aria-label="Search expenses"
+      value={searchTerm}
+      onChange={(e) => onSearch(e.target.value)}
+    />
+  );
 }
 
-export default SearchBar
+export default SearchBar;

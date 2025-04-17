@@ -1,39 +1,58 @@
-import React, { useState } from 'react'
-import ExpenseForm from './components/ExpenseForm'
-import ExpenseTable from './components/ExpenseTable'
+import React, { useState } from "react";
+import ExpenseForm from "./components/ExpenseForm";
+import ExpenseTable from "./components/ExpenseTable";
+import SearchBar from "./components/SearchBar";
+import "./index.css";
 
-const App = () => {
-  const [expenses,setExpenses] = useState([])
-  const [search,setSearch] = useState("")
+function App() {
+  const [expenses, setExpenses] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  // Add a new expense
+  const handleAddExpense = (expense) => {
+    setExpenses((prevExpenses) => [...prevExpenses, expense]);
+  };
 
-  function manageExpenses (expense) {
-    setExpenses(expenses.concat(expense))
-  }
+  // Delete an expense by ID
+  const handleDeleteExpense = (id) => {
+    setExpenses((prevExpenses) =>
+      prevExpenses.filter((expense) => expense.id !== id)
+    );
+  };
 
-  const deleteItem = (id) => {
-    let newExpenses = expenses.filter((expense) => {
-      return expense.id !== id
-    })
-    setExpenses(newExpenses)
-  }
+  // Filter expenses by search term
+  const filteredExpenses = expenses.filter((expense) =>
+    expense.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
-
-  let chosenItems = expenses.filter((expense) => {
-    return expense.name.includes(search.toLowerCase())
-  })
-  
   return (
-    <div className='details'>
-      <h1>Expense Tracker</h1>
-      <p>Start taking control of your finances and life.Record,<br />
-        catalyze and analyze your spending </p>
-      <div className='right'>
-         <ExpenseForm onAddExpense = {manageExpenses}/>
-         <ExpenseTable expenses = {chosenItems} onDelete = {deleteItem} search = {search} onSearch = {setSearch}/>  
+    <div className="container">
+      {/* Header */}
+      <header className="header">
+        <h1>Expense Tracker</h1>
+        <p>
+          Start tracking your money. <br />
+          Record and view your expenses easily.
+        </p>
+      </header>
+
+      {/* Main Layout */}
+      <div className="main-layout">
+        {/* Left Panel: Add Expense */}
+        <div className="left-panel">
+          <h2>Add Expense</h2>
+          <p>Fill in the details below</p>
+          <ExpenseForm onAddExpense={handleAddExpense} />
+        </div>
+
+        {/* Right Panel: Search & Table */}
+        <div className="right-panel">
+          <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
+          <ExpenseTable expenses={filteredExpenses} onDelete={handleDeleteExpense} />
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
