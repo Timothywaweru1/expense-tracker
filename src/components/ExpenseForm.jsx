@@ -28,7 +28,7 @@ function ExpenseForm({ onAddExpense }) {
 
     onAddExpense(newExpense);
 
-    // Reset the form
+    
     setFormData({
       name: "",
       description: "",
